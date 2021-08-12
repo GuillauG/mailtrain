@@ -1,6 +1,6 @@
 exports.up = (knex, Promise) => (async() => {
     await knex.schema.raw('ALTER TABLE `campaign_messages` ADD `hash_email` char(88) CHARACTER SET ascii');
-    await knex.schema.raw('ALTER TABLE `campaign_messages` ADD UNIQUE KEY `campaign_hash_email` (`campaign`, `hash_email`)');
+    await knex.schema.raw('ALTER TABLE `campaign_messages` ADD KEY `campaign_hash_email` (`campaign`, `hash_email`)');
     await knex.schema.raw('ALTER TABLE `campaign_messages` DROP KEY `created`');
     await knex.schema.raw('ALTER TABLE `campaign_links` DROP KEY `created_index`');
 
